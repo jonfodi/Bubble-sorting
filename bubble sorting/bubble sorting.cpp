@@ -14,7 +14,7 @@ void main() {
 
 	void Bsort(int*, int);
 
-	const int N = 10;
+	const int N = 5;
 	int Arr[N] = {};
 	int x = 0;
 
