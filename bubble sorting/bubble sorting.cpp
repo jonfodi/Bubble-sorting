@@ -1,21 +1,57 @@
-// bubble sorting.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
-#include "pch.h"
+// Bubble sorting in ascending order 
+// outer pointer loop remains fixed to n[0] until the whole array has been looped through
+// inner pointer loops through from 1 index above n[0] 
+// pointer values are compared at each iteration
+// if the inner pointer value is greater than the outer pointer value, swap (opposite for descending order)
+
+#include"pch.h"
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n"; 
+using namespace std; 
+
+void main() {
+
+	void Bsort(int*, int);
+
+	const int N = 10;
+	int Arr[N] = {};
+	int x = 0;
+
+	
+	for (int i = 0; i < N; i++) {		
+
+		cout << " Input an integer to be sorted " << endl;
+		cin >> x;
+
+		Arr[i] = x;
+	}
+
+	Bsort(Arr, N);
+	  
+	cout << "The sorted integers are: ";
+
+	for (int sorted : Arr)
+		cout << sorted << " ";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void Bsort(int*ptr, int n) {
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	void order(int*, int*);
+	int j, k;						
+
+	for (j = 0; j < n - 1; j++)      // outer ptr loop
+		for (k = j + 1; k < n; k++)   // inner ptr loop
+					  
+			order(ptr + j, ptr + k);
+}  
+
+void order(int* num1, int* num2) {       
+
+	if (*num1 > *num2) {
+		int temp = *num1;       // swap 
+		*num1 = *num2;
+		*num2 = temp;
+	}  
+
+}  
